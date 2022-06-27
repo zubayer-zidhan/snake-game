@@ -25,7 +25,7 @@ def game_over():
 # TODO: Implement snake movement
 screen.onkeypress(key="a", fun=snake.turn_right)
 screen.onkeypress(key="d", fun=snake.turn_left)
-screen.onkey(key="escape", fun=game_over)
+screen.onkey(key="Escape", fun=game_over)
 
 
 # TODO: Game logic
