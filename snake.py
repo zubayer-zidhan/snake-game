@@ -20,6 +20,7 @@ class Snake:
     def create_snake_segment(self, coordinates):
         new_segment = Turtle()
         new_segment.shape("square")
+        new_segment.color("white")
         new_segment.penup()
         new_segment.speed("fastest")
         new_segment.goto(coordinates)
