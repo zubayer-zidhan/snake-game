@@ -56,6 +56,10 @@ while game_on:
     screen.update()
     snake.move()
 
+    # Detect collision with food
+    if snake.head.distance(food) < 20:
+        food.create_food()
+
 
 
 

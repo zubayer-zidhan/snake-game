@@ -13,6 +13,6 @@ class Food(Turtle):
         self.create_food()
 
     def create_food(self):
-        random_x = randint(-370, 370)
-        random_y = randint(-370, 370)
+        random_x = randint(-320, 320)
+        random_y = randint(-320, 320)
         super().goto(random_x, random_y)
