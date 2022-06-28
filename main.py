@@ -23,8 +23,11 @@ def game_over():
 
 
 # TODO: Implement snake movement
-screen.onkeypress(key="a", fun=snake.turn_right)
-screen.onkeypress(key="d", fun=snake.turn_left)
+# TODO: Add wasd key functionality
+screen.onkey(key="w", fun=snake.up)
+screen.onkey(key="a", fun=snake.left)
+screen.onkey(key="s", fun=snake.down)
+screen.onkey(key="d", fun=snake.right)
 screen.onkey(key="Escape", fun=game_over)
 
 

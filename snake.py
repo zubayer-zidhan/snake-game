@@ -1,8 +1,15 @@
 from turtle import Turtle
 
+# CONSTANTS
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+MOVE_DISTANCE = 20
+UP = 90
+LEFT = 180
+DOWN = 270
+RIGHT = 0
 
 
+# The Snake class
 class Snake:
     def __init__(self):
         self.segments = []
@@ -29,16 +36,24 @@ class Snake:
             new_x = self.segments[segment_num - 1].xcor()
             new_y = self.segments[segment_num - 1].ycor()
             self.segments[segment_num].goto(new_x, new_y)
-        self.head.fd(10)
+        self.head.fd(MOVE_DISTANCE)
+
+    # On pressing w
+    def up(self):
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     # On pressing a
-    def turn_left(self):
-        heading = self.head.heading()
-        self.head.setheading(heading - 90)
+    def left(self):
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
+
+    # On pressing s
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     # On pressing d
-    def turn_right(self):
-        heading = self.head.heading()
-        self.head.setheading(heading + 90)
-
-
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
