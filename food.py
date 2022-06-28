@@ -1,6 +1,9 @@
 from turtle import Turtle
 from random import randint
 
+# CONSTANTS
+P_INT = 310     # positive integer upper bound
+I_INT = -310    # negative integer upper bound
 
 # The Food class
 class Food(Turtle):
@@ -13,6 +16,6 @@ class Food(Turtle):
         self.create_food()
 
     def create_food(self):
-        random_x = randint(-320, 320)
-        random_y = randint(-320, 320)
+        random_x = randint(I_INT, P_INT)
+        random_y = randint(I_INT, P_INT)
         super().goto(random_x, random_y)

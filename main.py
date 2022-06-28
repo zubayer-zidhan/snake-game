@@ -1,6 +1,8 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
+from gameOver import GameOver
 import time
 
 # CONSTANTS
@@ -17,16 +19,18 @@ screen.tracer(0)
 # TODO: Create objects of the different classes
 snake = Snake()
 food = Food()
+scoreboard = Scoreboard()
+gameOver = GameOver()
 
 
 # Game on
-game_on = True
-
-
-# Temp functions to be changed later
-def game_over():
-    global game_on
-    game_on = False
+# game_on = True
+#
+#
+# # Temp functions to be changed later
+# def game_over():
+#     global game_on
+#     game_on = False
 
 
 # TODO: Implement snake movement
@@ -43,21 +47,22 @@ screen.onkey(key="Down", fun=snake.down)
 screen.onkey(key="Right", fun=snake.right)
 
 # Escape key functionality
-screen.onkey(key="Escape", fun=game_over)
+screen.onkey(key="Escape", fun=gameOver.game_over)
 
 
 # TODO: Game logic
 screen.listen()
 
 
-
-while game_on:
+while gameOver.game_on:
     time.sleep(SNAKE_SPEED)
     screen.update()
     snake.move()
 
     # Detect collision with food
     if snake.head.distance(food) < 20:
+        scoreboard.update_score()
+        # print(scoreboard.score)
         food.create_food()
 
 
