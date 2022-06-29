@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 # CONSTANTS
-POSITION_Y = 320
+FONT = ("Courier", 28, "bold")
 
 
 # The Scoreboard class
@@ -16,4 +16,5 @@ class GameOver(Turtle):
 
     # Method for updating score
     def game_over(self):
+        super().write("Game Over.", move=False, align="center", font=FONT)
         self.game_on = False

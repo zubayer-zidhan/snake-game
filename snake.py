@@ -26,6 +26,11 @@ class Snake:
         new_segment.goto(coordinates)
         self.segments.append(new_segment)
 
+    # Extend the snake
+    def extend(self):
+        coor = self.segments[-1].pos()
+        self.create_snake_segment(coor)
+
     # Create the initial snake
     def create_snake(self):
         for coordinates in STARTING_POSITIONS:

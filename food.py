@@ -5,6 +5,7 @@ from random import randint
 P_INT = 310     # positive integer upper bound
 I_INT = -310    # negative integer upper bound
 
+
 # The Food class
 class Food(Turtle):
     def __init__(self):

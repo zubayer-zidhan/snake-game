@@ -16,24 +16,14 @@ screen.bgcolor("black")
 screen.tracer(0)
 
 
-# TODO: Create objects of the different classes
+# --------- Create objects of the different classes ---------
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
 gameOver = GameOver()
 
 
-# Game on
-# game_on = True
-#
-#
-# # Temp functions to be changed later
-# def game_over():
-#     global game_on
-#     game_on = False
-
-
-# TODO: Implement snake movement
+# ----------------- Implement snake movement -----------------
 # wasd key functionality
 screen.onkey(key="w", fun=snake.up)
 screen.onkey(key="a", fun=snake.left)
@@ -50,7 +40,7 @@ screen.onkey(key="Right", fun=snake.right)
 screen.onkey(key="Escape", fun=gameOver.game_over)
 
 
-# TODO: Game logic
+# ----------------- Game logic -----------------
 screen.listen()
 
 
@@ -60,25 +50,25 @@ while gameOver.game_on:
     snake.move()
 
     # Detect collision with food
-    if snake.head.distance(food) < 20:
+    if snake.head.distance(food) < 13:
+        scoreboard.score += 1
         scoreboard.update_score()
-        # print(scoreboard.score)
+
+        # Extend the snake
+        snake.extend()
+
+        # Create new food on the screen
         food.create_food()
 
+    # Detect collision with wall
+    if snake.head.xcor() < -340 or snake.head.xcor() > 340 or snake.head.ycor() < -340 or snake.head.ycor() > 340:
+        gameOver.game_over()
+
+    # Collision with tail
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 9:
+            gameOver.game_over()
 
 
-
-# TODO: Generate food
-
-
-# TODO: Detect collision with wall
-
-
-
-
-
-
-
-
-# End of file
-screen.exitonclick()
+# Mainloop
+screen.mainloop()

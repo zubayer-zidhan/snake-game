@@ -2,6 +2,7 @@ from turtle import Turtle
 
 # CONSTANTS
 POSITION_Y = 300
+FONT = ("Courier", 28, "bold")
 
 
 # The Scoreboard class
@@ -17,5 +18,5 @@ class Scoreboard(Turtle):
 
     # Method for updating score
     def update_score(self):
-        self.score += 1
-        super().write(f"Score: {self.score}", move=False, align="center", font=("Courier", 28, "bold"))
+        super().clear()
+        super().write(f"Score: {self.score}", move=False, align="center", font=FONT)
